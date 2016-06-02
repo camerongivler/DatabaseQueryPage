@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Aqueti Home</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+        <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="javascript.js"></script>
+    </head>
+    <body>
+        <!-- <div id="previewDiv"></div> -->
+        <!-- <form id="editForm" style="overflow:scroll;" method="POST"></form> -->
+        <div id="mainDiv" class="container">
+            <div id="header">
+                <h1>Aqueti Database Editor</h1>
+            </div>
+            <form class="form-horizontal" role="form">
+                <div id="selectDiv" class="form-group">
+                    <label class="control-label col-sm-3" for="selectColl">Collection:</label>
+                    <div class="col-sm-9">
+                        <select class="form-control input-sm" id="selectColl" name="collections">
+                            <option>composites</option>
+                            <option>albums</option>
+                            <option>snapshots</option>
+                        </select>
+                    </div>
+                </div>
+                <div title="composites" id="queryDiv" class="form-group">
+                    <label class="control-label col-sm-3" for="querySelect">Document:</label>
+                    <div class="col-sm-9">
+                        <select class="form-control input-sm" id="querySelect">
+                            <option value="02252014075100" label="02252014075100 - 20140225 - Cameron Crazies"></option>
+                            <option value="02072014104900" label="02072014104900 - 20140202 - National Anthem"></option>
+                            <option value="02132014095000" label="02132014095000 - 20140206 - Downtown Durham"></option>
+                            <option value="02142014030700" label="02142014030700 - undefined - WBB: Duke vs. UNC"></option>
+                            <option value="02162014085900" label="02162014085900 - undefined - WBB: Duke vs. UNC"></option>
+                            <option value="02162014100100" label="02162014100100 - undefined - WBB: Duke vs. UNC"></option>
+                            <option value="02142014031300" label="02142014031300 - undefined - WBB: Duke vs. UNC"></option>
+                            <option value="02252014052400" label="02252014052400 - 20140225 - Cameron before the game"></option>
+                            <option value="02252014122200" label="02252014122200 - undefined - Rooftop Model"></option>
+                            <option value="52ee773807000001" label="52ee773807000001 - 2014_02_02 - National Anthem"></option>
+                            <option value="03112014015500" label="03112014015500 - 20140308 - Duke UNC Pregame"></option>
+                            <option value="02252014081800" label="02252014081800 - 20140225 - Media Timeout"></option>
+                            <option value="02252014090800" label="02252014090800 - 20140225 - Game Action"></option>
+                            <option value="02252014122900" label="02252014122900 - undefined - Downtown Durham 2"></option>
+                            <option value="02262014120000" label="02262014120000 - 20140225 - Crazies Wave"></option>
+                            <option value="03082014061900" label="03082014061900 - 20140308 - Kville on Fire"></option>
+                            <option value="03082014090800" label="03082014090800 - 20140308 - Pregame- Crowd Singing"></option>
+                            <option value="03082014102500" label="03082014102500 - 20140308 - First Half Free Throw"></option>
+                            <option value="03102014122800" label="03102014122800 - 20140308 - First Half Timeout"></option>
+                            <option value="03082014103500" label="03082014103500 - 20140308 - CollegeGameday2"></option>
+                            <option value="03082014111000" label="03082014111000 - 20140308 - Second Half Timeout"></option>
+                            <option value="03082014113700" label="03082014113700 - 20140308 - Second Half Timeout"></option>
+                            <option value="03082014114000" label="03082014114000 - 20140308 - College Gameday with On-Court Tent"></option>
+                            <option value="03092014121300" label="03092014121300 - 20140308 - Second Half Timeout"></option>
+                            <option value="03112014100700" label="03112014100700 - 20140303 - Nasher Statues View 1"></option>
+                            <option value="03112014101500" label="03112014101500 - 20140303 - Nasher Statue View 4"></option>
+                            <option value="03162014020100" label="03162014020100 - 20140303 - Nasher Statues 2"></option>
+                            <option value="03172014100900" label="03172014100900 - 20140303 - Nasher Statues View 1"></option>
+                            <option value="03172014102500" label="03172014102500 - 20140303 - Nasher Statues 3"></option>
+                            <option value="03172014104500" label="03172014104500 - 20140303 - Nasher Statues 4"></option>
+                            <option value="03172014115600" label="03172014115600 - 20140303 - Nasher Statues 5"></option>
+                            <option value="03192014104700" label="03192014104700 - 20140302 - Jordan Lake Location 2"></option>
+                            <option value="03192014105000" label="03192014105000 - 20140302 - Sunrise at Jordan Lake"></option>
+                            <option value="03262014114600" label="03262014114600 - 20140324 - Museum Dino"></option>
+                        </select>
+                    </div>
+                </div>
+                <div id="workDiv" title="composites" name="workDiv" method="post">
+                    <!--iframe class="col-sm-12" src="http://s3.amazonaws.com/aqueti.data/composites/02252014075100/02252014075100.tiles/index.html" height="200px" allowfullscreen="true" seamless="true" id="previewImg"></iframe-->
+                    <ul title="root" id="root">
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="eventId">eventId</label>
+                                <div class="col-sm-9">
+                                    <input id="eventId" class="form-control input-sm" type="text" value="undefined" name="eventId" title="eventId"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="panel-group" id="accessAccordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accessAcccordion" href="#accessCollapse">
+                                            <h3 class="panel-title">access<span class="glyphicon glyphicon-chevron-down pull-right"></span></h3>
+                                        </a>
+                                    </div>
+                                    <div id="accessCollapse" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul title="access" class="dict">
+                                                <li>
+                                                    <label>users</label>
+                                                    <div class="panel-group" id="accordion1">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+                                                                    <h3 class="panel-title">0</h3>
+                                                                </a>
+                                                            </div>
+                                                            <div id="collapseOne" class="panel-collapse collapse in">
+                                                                <div class="panel-body">
+                                                                    <ul class="group">
+                                                                        <li>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label col-sm-3" for="u0id">id</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <input id="u0id" class="form-control input-sm" type="text" value="undefined" name="id" title="id">
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label col-sm-3" for="u0perm">permission</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <select id="u0perm" class="form-control input-sm" name="permission" title="permission">
+                                                                                        <option>read</option>
+                                                                                        <option>read/write</option>
+                                                                                        <option>none</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">
+                                                                    <h3 class="panel-title">1</h3>
+                                                                </a>
+                                                            </div>
+                                                            <div id="collapseTwo" class="panel-collapse collapse">
+                                                                <div class="panel-body">
+                                                                    <ul class="group">
+                                                                        <li>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label col-sm-3" for="u1id">id</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <input id="u1id" class="form-control input-sm" type="text" value="undefined" name="id" title="id">
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label col-sm-3" for="u1perm">permission</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <select id="u1perm" class="form-control input-sm" name="permission" title="permission">
+                                                                                        <option>read</option>
+                                                                                        <option>read/write</option>
+                                                                                        <option>none</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseThree">
+                                                                    <h3 class="panel-title">2</h3>
+                                                                </a>
+                                                            </div>
+                                                            <div id="collapseThree" class="panel-collapse collapse">
+                                                                <div class="panel-body">
+                                                                    <ul class="group">
+                                                                        <li>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label col-sm-3" for="u2id">id</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <input id="u2id" class="form-control input-sm" type="text" value="undefined" name="id" title="id">
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label col-sm-3" for="u2perm">permission</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <select id="u2perm" class="form-control input-sm" name="permission" title="permission">
+                                                                                        <option>read</option>
+                                                                                        <option>read/write</option>
+                                                                                        <option>none</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" class="btn btn-default" title="users" id="addButton">Add</button>
+                                                </li>
+                                                <li>
+                                                    <label>groups</label>
+                                                    <div class="panel-group" id="accordion2">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne2">
+                                                                    <h3 class="panel-title">0</h3>
+                                                                </a>
+                                                            </div>
+                                                            <div id="collapseOne2" class="panel-collapse collapse in">
+                                                                <div class="panel-body">
+                                                                    <ul class="group">
+                                                                        <li>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label col-sm-3" for="g0id">id</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <input id="g0id" class="form-control input-sm" type="text" value="undefined" name="id" title="id">
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label col-sm-3" for="g0perm">permission</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <select id="g0perm" class="form-control input-sm" name="permission" title="permission">
+                                                                                        <option>read</option>
+                                                                                        <option>read/write</option>
+                                                                                        <option>none</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2">
+                                                                    <h3 class="panel-title">1</h3>
+                                                                </a>
+                                                            </div>
+                                                            <div id="collapseTwo2" class="panel-collapse collapse">
+                                                                <div class="panel-body">
+                                                                    <ul class="group">
+                                                                        <li>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label col-sm-3" for="g1id">id</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <input id="g1id" class="form-control input-sm" type="text" value="undefined" name="id" title="id">
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label col-sm-3" for="g1perm">permission</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <select id="g1perm" class="form-control input-sm" name="permission" title="permission">
+                                                                                        <option>read</option>
+                                                                                        <option>read/write</option>
+                                                                                        <option>none</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThree2">
+                                                                    <h3 class="panel-title">2</h3>
+                                                                </a>
+                                                            </div>
+                                                            <div id="collapseThree2" class="panel-collapse collapse">
+                                                                <div class="panel-body">
+                                                                    <ul class="group">
+                                                                        <li>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label col-sm-3" for="g2id">id</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <input id="g2id" class="form-control input-sm" type="text" value="undefined" name="id" title="id">
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label col-sm-3" for="g2perm">permission</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <select id="g2perm" class="form-control input-sm" name="permission" title="permission">
+                                                                                        <option>read</option>
+                                                                                        <option>read/write</option>
+                                                                                        <option>none</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" class="btn btn-default" title="users" id="groupAddButton">Add</button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="panel-group" id="accordion3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accordion3" href="#collapse3">
+                                            <h3 class="panel-title">outputFiles<span class="glyphicon glyphicon-chevron-down pull-right"></span></h3>
+                                        </a>
+                                    </div>
+                                    <div id="collapse3" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul title="outputFiles" class="dict">
+                                                <li>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-3" for="krpano">krpano</label>
+                                                        <div class="col-sm-9">
+                                                            <input id="krpano" class="form-control input-sm" type="text" value="http://s3.amazonaws.com/aqueti.data/composites/02252014075100/02252014075100.tiles" name="krpano" title="krpano"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="description">description</label>
+                                <div class="col-sm-9">
+                                    <input id="description" class="form-control input-sm" type="text" value="undefined" name="description" title="description"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="title">title</label>
+                                <div class="col-sm-9">
+                                    <input id="title" class="form-control input-sm" type="text" value="Cameron Crazies" name="title" title="title"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="height">height</label>
+                                <div class="col-sm-9">
+                                    <input id="height" class="form-control input-sm" type="text" value="0" name="height" title="height" disabled/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="compositeDate">compositeDate</label>
+                                <div class="col-sm-9">
+                                    <input id="compositeDate" class="form-control input-sm" type="text" value="02/25/2014" name="compositeDate" title="compositeDate"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="width">width</label>
+                                <div class="col-sm-9">
+                                    <input id="width" class="form-control input-sm" type="text" value="0" name="width" title="width" disabled/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="compositeTime">compositeTime</label>
+                                <div class="col-sm-9">
+                                    <input id="compositeTime" class="form-control input-sm" type="text" value="07:51.00" name="compositeTime" title="compositeTime"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="panel-group" id="accordion4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accordion4" href="#collapse4">
+                                            <h3 class="panel-title">location<span class="glyphicon glyphicon-chevron-down pull-right"></span></h3>
+                                        </a>
+                                    </div>
+                                    <div id="collapse4" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul title="location" class="dict">
+                                                <li>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-3" for="city">city</label>
+                                                        <div class="col-sm-9">
+                                                            <input id="city" class="form-control input-sm" type="text" placeholder="Input a City" name="city" title="city"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-3" for="elevation">elevation</label>
+                                                        <div class="col-sm-9">
+                                                            <input id="elevation" class="form-control input-sm" type="text" placeholder="Input an Elevation" name="elevation" title="elevation"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-3" for="description">description</label>
+                                                        <div class="col-sm-9">
+                                                            <input id="description" class="form-control input-sm" type="text" placeholder="Input a Description" name="description" title="description"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-3" for="zip">zip</label>
+                                                        <div class="col-sm-9">
+                                                            <input id="zip" class="form-control input-sm" type="text" placeholder="Input a Zip" name="zip" title="zip"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-3" for="address">address</label>
+                                                        <div class="col-sm-9">
+                                                            <input id="address" class="form-control input-sm" type="text" placeholder="Input an Address" name="address" title="address"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-3" for="longitude">longitude</label>
+                                                        <div class="col-sm-9">
+                                                            <input id="longitude" class="form-control input-sm" type="text" placeholder="Input a Longitude" name="longitude" title="longitude"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-3" for="state">state</label>
+                                                        <div class="col-sm-9">
+                                                            <input id="state" class="form-control input-sm" type="text" placeholder="Input a State" name="state" title="state"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-3" for="azimuth">azimuth</label>
+                                                        <div class="col-sm-9">
+                                                            <input id="azimuth" class="form-control input-sm" type="text" placeholder="Input an Azimuth" name="azimuth" title="azimuth"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-3" for="latitude">latitude</label>
+                                                        <div class="col-sm-9">
+                                                            <input id="latitude" class="form-control input-sm" type="text" placeholder="Input a Latitude" name="latitude" title="latitude"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-3" for="address2">address2</label>
+                                                        <div class="col-sm-9">
+                                                            <input id="address2" class="form-control input-sm" type="text" placeholder="Input an Address2" name="address2" title="address2"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-3" for="name">name</label>
+                                                        <div class="col-sm-9">
+                                                            <input id="name" class="form-control input-sm" type="text" placeholder="Input a Name" name="name" title="name"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="version">version</label>
+                                <div class="col-sm-9">
+                                    <input id="version" class="form-control input-sm" type="text" value="1.1" name="version" title="version"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="keywords">keywords</label>
+                                <div class="col-sm-9">
+                                    <input id="keywords" class="form-control input-sm" type="text" value="undefined" name="keywords" title="keywords"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="preview">preview</label>
+                                <div class="col-sm-9">
+                                    <input id="preview" class="form-control input-sm" type="text" value="http://s3.amazonaws.com/aqueti.data/composites/02252014075100/02252014075100.tiles/preview.jpg" name="preview" title="preview"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="type">type</label>
+                                <div class="col-sm-9">
+                                    <input id="type" class="form-control input-sm" type="text" value="composite" name="type" title="type"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="id">id</label>
+                                <div class="col-sm-9">
+                                    <input id="id" class="form-control input-sm" type="text" value="02252014075100" name="id" title="id"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="datasetId">datasetId</label>
+                                <div class="col-sm-9">
+                                    <input id="datasetId" class="form-control input-sm" type="text" value="d7d57ef049030001" name="datasetId" title="datasetId"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-xs-12">
+                            <button type="button" class="btn btn-primary" id="submitButton" value="submit" name="composites">Submit</button>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
